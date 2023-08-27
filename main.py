@@ -373,6 +373,7 @@ class LibraryManagementSystem:
         my_cursor.execute("update library set Member=%s,Id=%s,Firstname=%s,Lastname=%s,phone=%s,bookid=%s,booktitle=%s,author=%s,dateborrowed=%s,datedue=%s,days_over_due=%s,fine=%s,totalbooks=%s where usn=%s",(
             self.member_var.get(),
             self.Id_var.get(),
+            self.usn.get(),
             self.fn_var.get(),
             self.ln_var.get(),
             self.pno_var.get(),
@@ -383,8 +384,7 @@ class LibraryManagementSystem:
             self.dd_var.get(),
             self.days_var.get(),
             self.fine_var.get(),
-            self.total_var.get(),
-            self.usn.get()
+            self.total_var.get()
         ))
         conn.commit()
         self.fetch_data()
@@ -414,15 +414,15 @@ class LibraryManagementSystem:
         self.usn.set(row[2])
         self.fn_var.set(row[3])
         self.ln_var.set(row[4])
-        self.pno_var.set(row[13])
-        self.bid_var.set(row[5])
-        self.bn_var.set(row[6])
-        self.an_var.set(row[7])
-        self.db_var.set(row[8])
-        self.dd_var.set(row[9])
-        self.days_var.set(row[10])
-        self.fine_var.set(row[11])
-        self.total_var.set(row[12])
+        self.pno_var.set(row[5])
+        self.bid_var.set(row[6])
+        self.bn_var.set(row[7])
+        self.an_var.set(row[8])
+        self.db_var.set(row[9])
+        self.dd_var.set(row[10])
+        self.days_var.set(row[11])
+        self.fine_var.set(row[12])
+        self.total_var.set(row[13])
     def showData(self):
         self.txtBox.insert(END,"Member Type:"+ self.member_var.get() + "\n")
         self.txtBox.insert(END, "Id:" + self.Id_var.get() + "\n")
@@ -485,3 +485,4 @@ if __name__ == "__main__":
     root = Tk()
     obj = LibraryManagementSystem(root)
     root.mainloop()
+
